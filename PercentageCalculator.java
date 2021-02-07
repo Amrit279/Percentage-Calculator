@@ -67,6 +67,7 @@ public class PercentageCalculator {
                 sum += marks;
             check++;
         }
+        sc.close();
         percentage = 100.0/maxMarks * sum/subjects;
         System.out.println("Percentage in " + subjects + " subjects is " + percentage);
     }
