@@ -1,30 +1,42 @@
-//import java.util.InputMismatchException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PercentageCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int i, subjects, maxMarks, check = 0;
-        double marks, percentage, sum = 0.0;
+        int i, subjects = 0, maxMarks = 0, check = 0;
+        double marks = 0.0, percentage, sum = 0.0;
         System.out.print("Enter total number of subjects: ");
-        subjects = sc.nextInt();
+        try{subjects = sc.nextInt();} catch (InputMismatchException e){
+            System.out.println("This type of value is not allowed here!");
+            System.exit(0);
+        }
 
 
         if (subjects < 0){
         while (subjects < 0){
             System.out.println("Number of subjects cannot be negative!");
             System.out.print("Re-enter number of subjects: ");
-                subjects = sc.nextInt();
+                try{subjects = sc.nextInt();} catch (InputMismatchException e){
+                    System.out.println("This type of value is not allowed here!");
+                    System.exit(0);
+                }
         }
     }
         System.out.print("Enter maximum marks that can be attained in a subject (like 100, 80, 70 etc.): ");
-        maxMarks = sc.nextInt();
+        try{maxMarks = sc.nextInt();} catch (InputMismatchException e){
+            System.out.println("This type of value is not allowed here!");
+            System.exit(0);
+        }
         System.out.println();
         if (maxMarks < 0){
             while (maxMarks < 0){
                 System.out.println("Maximum marks cannot be neagtive");
                 System.out.print("Re-enter maximum marks that can be attained in a subject: ");
-                    maxMarks = sc.nextInt();
+                    try{maxMarks = sc.nextInt();} catch (InputMismatchException e){
+                        System.out.println("This type of value is not allowed here!");
+                        System.exit(0);
+                    }
             }
         }
 
@@ -33,7 +45,10 @@ public class PercentageCalculator {
                 System.out.print("Enter marks in subject " + (i+1) + ": ");
             else
                 System.out.print("Re-enter marks in subject " + (i+1) + ": ");
-            marks = sc.nextDouble();
+            try{marks = sc.nextDouble();} catch (InputMismatchException e){
+                System.out.println("This type of value is not allowed here!");
+                System.exit(0);
+            }
             System.out.println();
             if (marks > maxMarks){
                 System.out.println("Marks in a subject cannot be greater than maximum marks");
